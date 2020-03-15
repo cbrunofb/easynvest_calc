@@ -74,7 +74,7 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun buttonEnabling() {
-        btn_simulate.isEnabled = checkFields()
+        btn_simulate.isEnabled = checkFields() && isMaturityDateValid()
     }
 
     private fun checkFields(): Boolean {
@@ -92,6 +92,18 @@ class FormActivity : AppCompatActivity() {
 
     private fun isFieldFilled(editText: EditText): Boolean {
         return !editText.text.isNullOrEmpty()
+    }
+
+    private fun isMaturityDateValid(): Boolean {
+        val etMaturyDateValue = et_maturity_date.text.toString()
+        val cleanValid = etMaturyDateValue.replace("A", "")
+            .replace("M", "")
+            .replace("D", "")
+            .replace("/", "")
+
+        val isNumeric = cleanValid.matches("-?\\d+(\\.\\d+)?".toRegex())
+
+        return isNumeric && cleanValid.length == 8
     }
 
     private fun addFieldsMasks() {
