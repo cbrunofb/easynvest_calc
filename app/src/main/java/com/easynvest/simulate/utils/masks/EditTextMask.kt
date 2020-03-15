@@ -10,7 +10,7 @@ import java.text.NumberFormat
 import java.util.*
 
 
-class Masks(editText: EditText?, maskType: MaskType) : TextWatcher {
+class EditTextMask(editText: EditText?, maskType: MaskType) : TextWatcher {
     private val editTextWeakReference: WeakReference<EditText> = WeakReference<EditText>(editText)
     private val maskType = maskType
     private val mLocale = Locale("pt", "BR")

@@ -11,15 +11,13 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:max="100"
-        android:backgroundTint="@color/colorOrange"
+        android:layout_height="match_parent"
+        android:background = "@drawable/custom_progress_bar"
         app:layout_constraintTop_toTopOf="parent"
-        android:indeterminateTint="@color/colorPurple"
-        android:layout_marginTop="-7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:visibility="invisible"/>
 
     <TextView
@@ -104,8 +102,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_initial"
-                android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/layout_profits"
+                app:layout_constraintTop_toTopOf="@+id/tv_initial"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -124,8 +121,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_brute"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_initial_value"
+                app:layout_constraintTop_toTopOf="@+id/tv_brute"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -144,8 +140,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_profits"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_brute"
+                app:layout_constraintTop_toTopOf="@+id/tv_profits"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -164,8 +159,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_ir_over_profits"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profits"
+                app:layout_constraintTop_toTopOf="@+id/tv_ir_over_profits"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -184,8 +178,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_liquid_profits"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ir_over_profits"
+                app:layout_constraintTop_toTopOf="@+id/tv_liquid_profits"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -204,8 +197,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_redemption_date"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_liquid_profits"
+                app:layout_constraintTop_toTopOf="@+id/tv_redemption_date"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -224,8 +216,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_running_days"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_redemption_date"
+                app:layout_constraintTop_toTopOf="@+id/tv_running_days"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -244,8 +235,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_monthly_profits"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_running_days"
+                app:layout_constraintTop_toTopOf="@+id/tv_monthly_profits"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -264,8 +254,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_cdi_percentage"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_monthly_profits"
+                app:layout_constraintTop_toTopOf="@+id/tv_cdi_percentage"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -284,8 +273,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_year_profit"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_cdi_percentage"
+                app:layout_constraintTop_toTopOf="@+id/tv_year_profit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
@@ -304,8 +292,7 @@
                 android:layout_height="wrap_content"
                 style="@style/CustomTextViewList"
                 android:text="@string/default_period_profit"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_year_profit"
+                app:layout_constraintTop_toTopOf="@+id/tv_period_profit"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <Button

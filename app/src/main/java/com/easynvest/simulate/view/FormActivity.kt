@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.easynvest.R
 import com.easynvest.simulate.model.SimulateParams
 import com.easynvest.simulate.utils.enums.MaskType
-import com.easynvest.simulate.utils.masks.Masks
+import com.easynvest.simulate.utils.masks.EditTextMask
 import kotlinx.android.synthetic.main.activity_form.*
 import kotlin.collections.ArrayList
 
@@ -24,7 +24,6 @@ class FormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
         setListeners()
-
     }
 
     private fun setListeners() {
@@ -120,7 +119,7 @@ class FormActivity : AppCompatActivity() {
     private fun addInvestedAmountMask() {
         et_invested_amount.let {
             it.addTextChangedListener(
-                Masks(
+                EditTextMask(
                     it, MaskType.CURRENCY
                 )
             )
@@ -130,7 +129,7 @@ class FormActivity : AppCompatActivity() {
     private fun addMaturityDateMask() {
         et_maturity_date.let {
             it.addTextChangedListener(
-                Masks(
+                EditTextMask(
                     it, MaskType.DATE
                 )
             )
@@ -140,7 +139,7 @@ class FormActivity : AppCompatActivity() {
     private fun addRateMask() {
         et_rate.let {
             it.addTextChangedListener(
-                Masks(
+                EditTextMask(
                     it, MaskType.RATE
                 )
             )
@@ -156,10 +155,15 @@ class FormActivity : AppCompatActivity() {
 
     private fun prepareParams(): SimulateParams {
         // investedAmountValue
-        val investedAmountValue = et_invested_amount.text.toString()
+        var investedAmountValue = et_invested_amount.text.toString()
             .replace("R$", "")
             .replace(",", ".")
             .trim()
+
+        val dotsInInvestedAmountValue = ".".count{ investedAmountValue.contains(it) }
+
+        if (dotsInInvestedAmountValue > 0)
+            investedAmountValue = investedAmountValue.replaceFirst(".", "")
 
         // maturityDateValue
         val splittedMaturityDate = et_maturity_date.text.toString()
