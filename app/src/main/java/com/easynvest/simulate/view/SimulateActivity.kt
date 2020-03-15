@@ -1,9 +1,10 @@
 package com.easynvest.simulate.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.easynvest.R
@@ -12,6 +13,7 @@ import com.easynvest.simulate.model.Simulate
 import com.easynvest.simulate.model.SimulateParams
 import com.easynvest.simulate.viewModel.SimulateViewModel
 import kotlinx.android.synthetic.main.activity_simulate.*
+
 
 class SimulateActivity : AppCompatActivity() {
 
@@ -23,9 +25,10 @@ class SimulateActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_form)
+        setContentView(R.layout.activity_simulate)
 
-        setupViewModel()
+        val simulateParams = getParams()
+        setupViewModel(simulateParams)
     }
 
     override fun onResume() {
@@ -33,16 +36,13 @@ class SimulateActivity : AppCompatActivity() {
         viewModel.loadSimulate()
     }
 
-    private fun setupViewModel() {
+    private fun getParams(): SimulateParams {
+        return intent.getSerializableExtra(FormActivity.TAG) as SimulateParams
+    }
+
+    private fun setupViewModel(simulateParams: SimulateParams) {
         viewModel = ViewModelProvider(this, Injection.provideViewModelFactory(
-            // TODO: Remove this mock
-            SimulateParams(
-                32323f,
-                "CDI",
-                3.4f,
-                "no",
-                "2021-03-14"
-            )
+            simulateParams
         )).get(
             SimulateViewModel::class.java)
 
@@ -54,17 +54,30 @@ class SimulateActivity : AppCompatActivity() {
     //Observers
     private val simulateObserver = Observer<Simulate> {
         Log.v(TAG, "data updated $it")
-        // TODO
+        layout_content.visibility = View.VISIBLE
     }
 
     private val loadingObserver = Observer<Boolean> {
         Log.v(TAG, "isViewLoading $it")
-        // TODO
+        if (it)
+            showLoading()
+        else
+            hideLoading()
     }
 
     private val onMessageErrorObserver= Observer<String> {
         Log.v(TAG, "onMessageError $it")
-        // TODO
+        Toast.makeText(this, R.string.ops_error, Toast.LENGTH_SHORT).show()
+        tv_error.visibility = View.VISIBLE
+    }
+
+    private fun showLoading() {
+        layout_content.visibility = View.INVISIBLE
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        progress_bar.visibility = View.INVISIBLE
     }
 }
 

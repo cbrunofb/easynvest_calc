@@ -26,9 +26,9 @@ class SimulateRepository(simulateParams: SimulateParams):
     override fun retrieveSimulate(callback: OperationCallback<Simulate>) {
         call = ApiClient.build()?.simulate(
             this.investedAmount!!,
-            this.index!!,
+            this.index,
             this.rate!!,
-            this.isTaxFree!!,
+            this.isTaxFree,
             this.maturityDate!!
         )
         call?.enqueue(object : Callback<SimulateApiResponse> {

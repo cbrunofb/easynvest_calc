@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="colorEnabledButton">#00C8B3</color>
     <color name="colorDisabledButton">#C3CAC9</color>
+    <color name="colorPurple">#9B007B</color>
+    <color name="colorOrange">#FEBD01</color>
+    <color name="colorImportantValues">#00C8B3</color>
 </resources>
