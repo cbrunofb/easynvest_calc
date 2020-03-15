@@ -7,7 +7,10 @@ import android.text.TextWatcher
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.easynvest.R
+import com.easynvest.simulate.utils.enums.MaskType
+import com.easynvest.simulate.utils.masks.Masks
 import kotlinx.android.synthetic.main.activity_form.*
+import kotlin.collections.ArrayList
 
 
 class FormActivity : AppCompatActivity() {
@@ -22,6 +25,7 @@ class FormActivity : AppCompatActivity() {
     private fun setListeners() {
         disableHintsWhenFocus()
         addOnTextChangedListeners() // For button enabling
+        addFieldsMasks()
         addButtonListener()
     }
 
@@ -88,6 +92,42 @@ class FormActivity : AppCompatActivity() {
 
     private fun isFieldFilled(editText: EditText): Boolean {
         return !editText.text.isNullOrEmpty()
+    }
+
+    private fun addFieldsMasks() {
+        addInvestedAmountMask()
+        addMaturityDateMask()
+        addRateMask()
+    }
+
+    private fun addInvestedAmountMask() {
+        et_invested_amount.let {
+            it.addTextChangedListener(
+                Masks(
+                    it, MaskType.CURRENCY
+                )
+            )
+        }
+    }
+
+    private fun addMaturityDateMask() {
+        et_maturity_date.let {
+            it.addTextChangedListener(
+                Masks(
+                    it, MaskType.DATE
+                )
+            )
+        }
+    }
+
+    private fun addRateMask() {
+        et_rate.let {
+            it.addTextChangedListener(
+                Masks(
+                    it, MaskType.RATE
+                )
+            )
+        }
     }
 
     private fun addButtonListener() {
