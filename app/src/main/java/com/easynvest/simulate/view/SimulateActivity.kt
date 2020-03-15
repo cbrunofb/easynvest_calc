@@ -11,6 +11,7 @@ import com.easynvest.simulate.di.Injection
 import com.easynvest.simulate.model.Simulate
 import com.easynvest.simulate.model.SimulateParams
 import com.easynvest.simulate.viewModel.SimulateViewModel
+import kotlinx.android.synthetic.main.activity_simulate.*
 
 class SimulateActivity : AppCompatActivity() {
 

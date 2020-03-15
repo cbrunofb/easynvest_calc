@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Easynvest</string>
+    <string name="app_name">Simulação Easynvest</string>
+    <string name="how_much_invest">Quanto você gostaria de aplicar? *</string>
+    <string name="brasil_money">R$</string>
+    <string name="what_is_investment_due_due">Qual a data do vencimento do investimento? *</string>
+    <string name="date_format">dia/mês/ano</string>
+    <string name="what_is_cdi_percentage">Qual o percentual do CDI do investimento? *</string>
+    <string name="percentage">%</string>
+    <string name="simulate">Simular</string>
 </resources>

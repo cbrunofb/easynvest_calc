@@ -1,12 +1,12 @@
 package com.easynvest.simulate.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
-import com.easynvest.simulate.di.Injection
+import android.view.View.OnFocusChangeListener
+import androidx.appcompat.app.AppCompatActivity
 import com.easynvest.R
-import com.easynvest.simulate.viewModel.SimulateViewModel
+import kotlinx.android.synthetic.main.activity_form.*
+
 
 class FormActivity : AppCompatActivity() {
 
